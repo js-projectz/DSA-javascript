@@ -7,22 +7,24 @@
  */
 
 
-function selectionSort(nums) {
+function selectionSort(arr) {
+    let n = arr.length;
 
-    for (let i = 1; i < nums.length; i++) {
+    for (let i = 0; i < n - 1; i++) {
+        let minIndex = i;
 
-        let curr = nums[i];
-        let pre = i - 1;
-
-
-        while (pre >= 0 && nums[pre] > curr) {
-            nums[pre + 1] = nums[pre]; // 
-            pre--;
+        for (let j = i + 1; j < n; j++) {
+            if (arr[j] < arr[minIndex]) {
+                minIndex = j;
+            }
         }
-        nums[pre + 1] = curr;
+
+        if (minIndex !== i) {
+            [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
+        }
     }
-    return nums;
-};
+    return arr;
+}
 
 const arr = [12, 11, 13, 5, 6];
 console.log(selectionSort(arr));
