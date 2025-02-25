@@ -1,16 +1,21 @@
-function insertionSort(arr) {
-    for (let i = 1; i < arr.length; i++) {
+function insertionSort(nums) {
+
+    for (let i = 1; i < nums.length; i++) {
+
         let key = arr[i];
-        let j = i - 1;
+        let j = i - 1; // pointing to previous number
 
+        while (arr[j] > key && i >= 0) {
 
-        while (j >= 0 && arr[j] > key) {
+            // shifting the code
             arr[j + 1] = arr[j];
-            j = j - 1;
+            j -= 1; // check the previous number is smaller than current number
         }
+
         arr[j + 1] = key;
     }
-    return arr;
+
+    return nums;
 }
 
 
